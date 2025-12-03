@@ -1,0 +1,168 @@
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Background Mewah: Deep Purple to Pink */
+    background: radial-gradient(circle at center, #2e1a47 0%, #0f0c29 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* --- FIREFLIES (Efek Kunang-kunang) --- */
+.firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #ffff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
+    animation: fly 10s linear infinite;
+    opacity: 0;
+}
+
+/* Membuat banyak firefly bergerak acak */
+.firefly:nth-child(1) { top: 10%; left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.firefly:nth-child(2) { top: 20%; left: 80%; animation-duration: 12s; animation-delay: 1s; }
+.firefly:nth-child(3) { top: 60%; left: 30%; animation-duration: 10s; animation-delay: 2s; }
+.firefly:nth-child(4) { top: 80%; left: 70%; animation-duration: 14s; animation-delay: 0.5s; }
+.firefly:nth-child(5) { top: 40%; left: 50%; animation-duration: 11s; animation-delay: 3s; }
+/* ...dan seterusnya */
+
+@keyframes fly {
+    0% { transform: translate(0, 0); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translate(50px, -100px); opacity: 0; }
+}
+
+/* --- LOGIKA --- */
+#toggle-msg { display: none; }
+
+/* --- KARTU KACA (GLASSMORPHISM) --- */
+.card {
+    position: relative;
+    width: 320px; /* Lebar pas di HP */
+    background: rgba(255, 255, 255, 0.1); /* Transparan */
+    backdrop-filter: blur(15px); /* Efek Blur Kaca */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+/* --- TAMPILAN DEPAN --- */
+.cover {
+    transition: opacity 0.4s ease;
+}
+
+/* Cincin Berdenyut di sekeliling teks */
+.pulse-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; height: 120px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    pointer-events: none; /* Agar klik tembus ke label */
+}
+
+@keyframes pulse {
+    0% { width: 120px; height: 120px; opacity: 1; }
+    100% { width: 200px; height: 200px; opacity: 0; }
+}
+
+.title-front {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.instruction {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    letter-spacing: 2px;
+}
+
+/* Area Klik Full Cover */
+.click-area {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* --- TAMPILAN ISI (MUNCUL NANTI) --- */
+.content {
+    display: none;
+    opacity: 0;
+}
+
+.long-text {
+    font-family: 'Sacramento', cursive; /* Font sambung aesthetic */
+    font-size: 2.8rem;
+    color: #ffdae0; /* Pink pastel muda */
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(255, 218, 224, 0.5);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.btn-close {
+    display: inline-block;
+    padding: 8px 25px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-close:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* --- INTERAKSI MAGIC --- */
+#toggle-msg:checked ~ .card {
+    background: rgba(46, 26, 71, 0.6); /* Sedikit lebih gelap agar teks terbaca */
+}
+
+#toggle-msg:checked ~ .card .cover {
+    display: none;
+}
+
+#toggle-msg:checked ~ .card .content {
+    display: block;
+    animation: fadeInZoom 0.8s forwards;
+}
+
+@keyframes fadeInZoom {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 400px) {
+    .title-front { font-size: 2rem; }
+    .long-text { font-size: 2.2rem; }
+}
