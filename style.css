@@ -165,4 +165,106 @@ body {
 @media (max-width: 400px) {
     .title-front { font-size: 2rem; }
     .long-text { font-size: 2.2rem; }
+
+}
+
+/* =========================================
+   NAVIGASI MODERN (FLOATING DOCK STYLE)
+   ========================================= */
+
+header {
+    position: fixed;
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Jarak antar tombol */
+}
+
+/* --- TAMPILAN TOMBOL MENU (UMUM) --- */
+.nav-item {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6); /* Warna teks agak pudar */
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 30px; /* Bentuk bulat kapsul */
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efek saat disentuh / Aktif */
+.nav-item.active {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.25); /* Glow pink halus */
+    transform: translateY(-2px);
+}
+
+.nav-item:active {
+    transform: scale(0.95); /* Efek membal saat diklik */
+}
+
+/* Titik bersinar di bawah menu aktif */
+.nav-item.active::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #ff6b81;
+    border-radius: 50%;
+    margin-top: 4px;
+    box-shadow: 0 0 8px #ff6b81;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (RAHASIA TAMPILAN HP)
+   ========================================= */
+
+/* Tampilan Desktop/Laptop (Menu di Atas) */
+@media (min-width: 481px) {
+    header {
+        top: 0; left: 0; width: 100%;
+        padding: 20px 0;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Tampilan HP (Menu Melayang di Bawah) */
+@media (max-width: 480px) {
+    header {
+        top: auto; /* Hapus posisi atas */
+        bottom: 25px; /* Tempel di bawah layar */
+        left: 50%;
+        transform: translateX(-50%); /* Posisi tengah */
+        width: 90%; /* Lebar tidak full */
+        max-width: 380px;
+        
+        /* Desain Kaca Gelap Mewah */
+        background: rgba(20, 10, 30, 0.65); 
+        backdrop-filter: blur(20px); 
+        -webkit-backdrop-filter: blur(20px);
+        
+        border-radius: 50px; /* Kapsul Besar */
+        padding: 8px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        justify-content: space-around; /* Jarak menu merata */
+    }
+
+    .nav-item {
+        font-size: 0.75rem; /* Ukuran font pas di HP */
+        padding: 10px 14px;
+    }
 }
