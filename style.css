@@ -268,3 +268,113 @@ nav {
         padding: 10px 14px;
     }
 }
+
+/* =========================================
+   MAGIC NOTIFICATION PILL (INTERAKTIF)
+   ========================================= */
+
+.top-interactive-container {
+    position: fixed;
+    top: 25px; /* Jarak dari atas */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000; /* Paling atas */
+}
+
+/* Sembunyikan Checkbox Asli */
+#top-msg-toggle {
+    display: none;
+}
+
+/* Desain Kapsul Kaca */
+.magic-pill {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15); /* Kaca transparan */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
+    overflow: hidden;
+    
+    /* Ukuran Awal (Kecil) */
+    width: 140px; 
+}
+
+/* --- TAMPILAN TERTUTUP (KECIL) --- */
+.pill-closed {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.text-short {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pulse-icon {
+    font-size: 1.1rem;
+    animation: pulseMsg 1.5s infinite;
+}
+
+@keyframes pulseMsg {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* --- TAMPILAN TERBUKA (ISI PESAN) --- */
+.pill-open {
+    opacity: 0;
+    transform: translateY(20px); /* Geser ke bawah dulu */
+    transition: all 0.4s ease;
+    white-space: nowrap; /* Teks satu baris */
+}
+
+.text-long {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================
+   LOGIKA INTERAKSI (THE MAGIC)
+   ========================================= */
+
+/* Saat Checkbox Dicentang (Pill Diklik): */
+
+/* 1. Kapsul Melebar */
+#top-msg-toggle:checked + .magic-pill {
+    width: 85%; /* Melebar hampir sepenuh layar HP */
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.25); /* Lebih terang dikit */
+    border-color: rgba(255, 182, 193, 0.6); /* Border jadi pink muda */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4); /* Glow effect */
+}
+
+/* 2. Sembunyikan Teks Pendek */
+#top-msg-toggle:checked + .magic-pill .pill-closed {
+    opacity: 0;
+    transform: translateY(-20px); /* Geser ke atas hilang */
+}
+
+/* 3. Munculkan Teks Panjang */
+#top-msg-toggle:checked + .magic-pill .pill-open {
+    opacity: 1;
+    transform: translateY(0);
+}
