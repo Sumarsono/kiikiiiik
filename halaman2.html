@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikik 2</title>
+    <title>Kikik 2 - Lagu Kita</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Sacramento&display=swap" rel="stylesheet">
 </head>
@@ -18,18 +18,57 @@
         </nav>
     </header>
 
+    <div class="top-interactive-container">
+        <input type="checkbox" id="top-msg-toggle">
+        <label for="top-msg-toggle" class="magic-pill">
+            <div class="pill-closed">
+                <span class="pulse-icon">🎵</span>
+                <span class="text-short">Putar Lagu...</span>
+            </div>
+            <div class="pill-open">
+                <span class="text-long">Lagu ini ngingetin aku sama kamu 🎧</span>
+            </div>
+        </label>
+    </div>
+
     <div class="fireflies">
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-        <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-        <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+        <div class="firefly"></div><div class="firefly"></div>
     </div>
 
-    <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-        <div class="card" style="padding: 50px; min-width: 300px; text-align: center;">
+    <div class="music-container">
+        <div class="music-card">
             
-            <h1 class="long-text" style="font-size: 4rem;">kikik 2</h1>
-            
+            <div class="album-cover">
+                <img src="https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif" alt="Album Cover">
+            </div>
+
+            <div class="song-details">
+                <h2>Cintanya Aku</h2> <p>Tiara Andini (Cover)</p> </div>
+
+            <audio controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Browser kamu tidak support audio.
+            </audio>
+
+            <div class="playlist-list">
+                <div style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 10px;">PLAYLIST KITA</div>
+                
+                <div class="playlist-item">
+                    <span class="play-icon">▶</span>
+                    <span>1. Lagu Kesukaan Kamu</span>
+                </div>
+                <div class="playlist-item">
+                    <span class="play-icon">▶</span>
+                    <span>2. Saat Kita Bertemu</span>
+                </div>
+                <div class="playlist-item">
+                    <span class="play-icon">▶</span>
+                    <span>3. Mimpi Indah</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
