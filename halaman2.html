@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikik 2 - Lagu Kita</title>
+    <title>Kikik 2 - Melody</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Sacramento&display=swap" rel="stylesheet">
 </head>
@@ -22,11 +22,11 @@
         <input type="checkbox" id="top-msg-toggle">
         <label for="top-msg-toggle" class="magic-pill">
             <div class="pill-closed">
-                <span class="pulse-icon">🎵</span>
-                <span class="text-short">Putar Lagu...</span>
+                <span class="pulse-icon">🎹</span>
+                <span class="text-short">Play Music..</span>
             </div>
             <div class="pill-open">
-                <span class="text-long">Lagu a 🎧</span>
+                <span class="text-long">Dengerin 🎶</span>
             </div>
         </label>
     </div>
@@ -34,40 +34,24 @@
     <div class="fireflies">
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-        <div class="firefly"></div><div class="firefly"></div>
     </div>
 
-    <div class="music-container">
-        <div class="music-card">
+    <div class="music-wrapper">
+        <div class="player-card">
             
-            <div class="album-cover">
-                <img src="https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif" alt="Album Cover">
+            <div class="vinyl-record">
+                <img src="https://media.giphy.com/media/LpDmM2wSt6Hm5fKJVa/giphy.gif" alt="Cover" class="album-art">
             </div>
 
-            <div class="song-details">
-                <h2> b </h2> <p>aa (Cover)</p> </div>
+            <div class="song-info">
+                <h2>River Flows in You</h2>
+                <p>tes 1</p>
+            </div>
 
-            <audio controls>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                Browser kamu tidak support audio.
+            <audio controls controlsList="nodownload">
+                <source src="https://archive.org/download/Yiruma-RiverFlowsInYou/Yiruma-River%20Flows%20in%20You.mp3" type="audio/mpeg">
+                Browser kamu tidak support musik.
             </audio>
-
-            <div class="playlist-list">
-                <div style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 10px;">PLAYLIST KITA</div>
-                
-                <div class="playlist-item">
-                    <span class="play-icon">▶</span>
-                    <span> c </span>
-                </div>
-                <div class="playlist-item">
-                    <span class="play-icon">▶</span>
-                    <span> cc </span>
-                </div>
-                <div class="playlist-item">
-                    <span class="play-icon">▶</span>
-                    <span>3. Mimpi Indah</span>
-                </div>
-            </div>
 
         </div>
     </div>
