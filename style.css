@@ -571,3 +571,107 @@ audio::-webkit-media-controls-play-button {
     border-radius: 50%;
 }
 
+/* =========================================
+   HALAMAN 1: AESTHETIC JOURNAL (MOBILE PRO)
+   ========================================= */
+
+.blog-wrapper {
+    padding: 120px 20px 100px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Kartu Kaca Keren */
+.blog-card {
+    background: rgba(255, 255, 255, 0.08); /* Lebih transparan */
+    backdrop-filter: blur(20px); /* Blur makin kuat */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px 25px 25px;
+    margin-bottom: 35px; /* Jarak diperlebar */
+    position: relative; /* Wajib buat posisi selotip */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.blog-card:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 182, 193, 0.5); /* Border jadi pink saat disentuh */
+}
+
+/* HIASAN 1: Washi Tape (Selotip) di Atas */
+.washi-tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transform: translateX(-50%) rotate(-2deg); /* Miring dikit biar natural */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 20;
+    opacity: 0.8;
+}
+
+/* HIASAN 2: Tanggal Ala Badge/Tombol */
+.blog-date {
+    display: inline-block;
+    background: rgba(255, 105, 180, 0.2); /* Pink transparan */
+    color: #ffdae0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 105, 180, 0.3);
+}
+
+.blog-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.blog-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+}
+
+/* HIASAN 3: Background Blobs (Bola Cahaya) */
+.decoration-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 1; /* Di belakang kartu */
+    opacity: 0.5;
+    animation: floatBlob 10s ease-in-out infinite;
+}
+
+.blob-1 {
+    top: 20%; left: -50px;
+    width: 200px; height: 200px;
+    background: #7b2cbf; /* Ungu */
+}
+
+.blob-2 {
+    bottom: 10%; right: -30px;
+    width: 250px; height: 250px;
+    background: #ff0054; /* Pink Merah */
+    animation-delay: 2s;
+}
+
+@keyframes floatBlob {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -20px); }
+}
