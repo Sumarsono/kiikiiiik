@@ -3,9 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikik 2 - Melody</title>
+    <title>Kikik 2 - Lagu Kita</title>
+    
     <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS KHUSUS HALAMAN INI (Agar Kucing & Player Rapi) --- */
+        
+        .music-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Memberi ruang agar tidak tertutup menu bawah/atas */
+            padding: 80px 20px 120px; 
+        }
+
+        .player-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px 25px;
+            width: 100%;
+            max-width: 320px; /* Ukuran pas di HP */
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- WADAH KUCING (TENGAH) --- */
+        .cat-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            position: relative;
+            border-radius: 50%;
+            /* Efek Glow Pink di belakang kucing */
+            box-shadow: 0 0 30px rgba(255, 182, 193, 0.6); 
+            border: 4px solid rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            background: rgba(255,255,255,0.1);
+            
+            /* Animasi Kucing Mengambang (Floating) */
+            animation: floatCat 3s ease-in-out infinite;
+        }
+
+        .cat-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes floatCat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- TEKS LAGU --- */
+        .song-info h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .song-info p {
+            font-size: 1.1rem;
+            color: #ffd1dc; /* Pink Pastel */
+            margin-bottom: 25px;
+            font-family: 'Sacramento', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* --- AUDIO PLAYER --- */
+        audio {
+            width: 100%;
+            height: 45px;
+            border-radius: 50px;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            /* Filter ini membuat player bawaan browser jadi nuansa putih/terang */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
+        }
+
+        /* Teks kecil di bawah */
+        .note {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,11 +115,11 @@
         <input type="checkbox" id="top-msg-toggle">
         <label for="top-msg-toggle" class="magic-pill">
             <div class="pill-closed">
-                <span class="pulse-icon">🎹</span>
-                <span class="text-short">Play Music..</span>
+                <span class="pulse-icon">🐱</span>
+                <span class="text-short">Klik Kucingnya..</span>
             </div>
             <div class="pill-open">
-                <span class="text-long">Dengerin 🎶</span>
+                <span class="text-long">Meow.. </span>
             </div>
         </label>
     </div>
@@ -34,24 +127,27 @@
     <div class="fireflies">
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+        <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
     </div>
 
     <div class="music-wrapper">
         <div class="player-card">
             
-            <div class="vinyl-record">
-                <img src="https://media.giphy.com/media/LpDmM2wSt6Hm5fKJVa/giphy.gif" alt="Cover" class="album-art">
+            <div class="cat-container">
+                <img src="https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif" alt="Cute Cat">
             </div>
 
             <div class="song-info">
-                <h2>River Flows in You</h2>
-                <p>tes 1</p>
+                <h2> okee </h2>
+                <p> cekk ✨</p>
             </div>
 
             <audio controls controlsList="nodownload">
-                <source src="https://archive.org/download/Yiruma-RiverFlowsInYou/Yiruma-River%20Flows%20in%20You.mp3" type="audio/mpeg">
-                Browser kamu tidak support musik.
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
+                Browser kamu tidak support audio.
             </audio>
+
+            <p class="note">*Klik play untuk memutar lagu</p>
 
         </div>
     </div>
